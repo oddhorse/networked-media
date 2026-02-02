@@ -1,0 +1,15 @@
+body {
+	background-color: mediumspringgreen;
+}
+
+.big {
+	font-size: 25px;
+}
+
+.blue {
+	color: blue;
+}
+
+#unique {
+	border: black 3px solid;
+}

@@ -1,3 +1,5 @@
+let rotValue = 0
+
 // Q: what is the first function we always run in our javascript files? add it below this comment.
 window.onload = () => {
 
@@ -6,8 +8,11 @@ window.onload = () => {
 	// Q: what function do we use to repeat something over time?
 	// A: 
 	setInterval(() => {
+		rotValue = (rotValue + 1) % 360
+		console.log(rotValue)
 
-	}, 1000)
+		rotate.style.transform = `rotate(${rotValue}deg)`
+	}, 10)
 	// Q: what parameters does it accept?
 	// A: function to run every interval, and interval time
 }

@@ -9,10 +9,12 @@ window.onload = () => {
 	// A: 
 	setInterval(() => {
 		rotValue = (rotValue + 1) % 360
-		console.log(rotValue)
 
 		rotate.style.transform = `rotate(${rotValue}deg)`
 	}, 10)
 	// Q: what parameters does it accept?
 	// A: function to run every interval, and interval time
+	document.body.addEventListener("click", () => {
+		rotate.classList.toggle("clicked")
+	})
 }

@@ -1,0 +1,27 @@
+/* church
+	by john trinh
+	style.css */
+
+body {
+	/* height: fit-content; */
+}
+
+#world {
+	/* min-height: 100%; */
+	/* width: 100%; */
+}
+
+#church {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+}
+
+#church:hover {
+	scale: 102%;
+}
+
+.clicked {
+	background-color: red;
+}

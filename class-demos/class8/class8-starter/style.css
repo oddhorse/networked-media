@@ -17,3 +17,7 @@
 	height: 200px;
 	background-color: navy;
 }
+
+#rotate.clicked {
+	background-color: blue;
+}

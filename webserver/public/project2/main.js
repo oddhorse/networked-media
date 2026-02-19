@@ -13,11 +13,15 @@ window.onload = () => {
 	const demoDisperseBtn = document.getElementById("demo-disperse-btn")
 
 	//=====ELEMENTS AND STATE=====//
-
+	// audio
 	const bell = new Audio("bell.mp3")
 	const crowdTalk = new Audio("crowd-talking.mp3")
 	const shh = new Audio("shh.mp3")
+	const knock = new Audio("knock.mp3")
 	const slam = new Audio("slam.mp3")
+
+	// elements
+	const light = document.getElementById("light")
 	const church = document.getElementById("church")
 	const congregation = document.getElementById("congregation")
 	const pageTitle = document.getElementById("page-title")
@@ -55,6 +59,56 @@ window.onload = () => {
 
 	bell.addEventListener("playing", () => {
 		pageTitle.innerText = "the bell tolls"
+		light.animate(
+			[
+				{ opacity: "0%" },
+				{ opacity: "100%" },
+			],
+			{
+				duration: 50,
+				iterations: 1,
+				delay: 90,
+				easing: "linear",
+			}
+		)
+		light.animate(
+			[
+				{ opacity: "100%" },
+				{ opacity: "0%" },
+			],
+			{
+				duration: 3500,
+				iterations: 1,
+				delay: 140,
+				easing: "linear",
+			}
+		)
+		church.animate(
+			[
+				// { scale: "100%" },
+				{ rotate: "0" },
+				{ rotate: "3deg" },
+			],
+			{
+				duration: 30,
+				iterations: 1,
+				delay: 90,
+				easing: "linear",
+			}
+		)
+		church.animate(
+			[
+				// { scale: "100%" },
+				{ rotate: "3deg" },
+				{ rotate: "0" },
+			],
+			{
+				duration: 2500,
+				iterations: 1,
+				delay: 120,
+				easing: "linear",
+			}
+		)
 	})
 
 	bell.addEventListener("ended", () => {
@@ -189,7 +243,17 @@ window.onload = () => {
 
 	church.addEventListener("click", () => {
 		//ringChurchBell(1)
-		goToChurch()
+		//goToChurch()
+		knock.play()
+		if (congregating) {
+			setTimeout(() => {
+				shh.play()
+				setTimeout(() => {
+					knock.pause()
+					knock.currentTime = 0
+				}, 450)
+			}, 100)
+		}
 	})
 
 	//=====UTILITY=====//

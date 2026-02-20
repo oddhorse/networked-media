@@ -36,6 +36,7 @@ button:hover {
 	translate: -50% -50%;
 	top: calc(50% - 30px);
 	left: calc(50% - 30px);
+	cursor: grabbing;
 }
 
 #church {
@@ -47,29 +48,41 @@ button:hover {
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	animation-direction: alternate; */
-
 }
 
 #world:hover {
 	scale: 102%;
-	cursor: grabbing;
 }
 
 #bush {
 	position: absolute;
 	top: 178px;
 	left: 49px;
+	cursor: help;
 }
 
 #bush:hover {
 	scale: 110%;
-	cursor: help;
+}
+
+#door {
+	position: absolute;
+	top: 171px;
+	left: 112px;
+	pointer-events: none;
 }
 
 #hammer {
 	position: absolute;
 	top: 178px;
 	left: 49px;
+	opacity: 0;
+	z-index: 0;
+	cursor: help;
+}
+
+#hammer:hover {
+	scale: 110%;
 }
 
 #congregation {

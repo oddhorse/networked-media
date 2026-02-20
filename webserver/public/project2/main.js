@@ -34,13 +34,48 @@ window.onload = () => {
 	let lastHourRung
 	let congregating = false
 	let hammerFound = false
+	let bushClicks = 0
+	let hammerActive = false
 
 	//=====HAMMER AND MARTIN LUTHER=====//
 
 	bush.addEventListener("click", () => {
-		if (!hammerFound) {
-
+		let rustle = new Audio("rustle.mp3").play()
+		if (!hammerFound && bushClicks < 3) bushClicks++
+		if (!hammerFound && bushClicks === 3) {
+			hammerFromBush()
+			hammerFound = true
 		}
+	})
+
+	function hammerFromBush() {
+		hammer.style.opacity = "100%"
+		hammer.style.zIndex = 1
+		hammer.animate(
+			[
+				{ opacity: "0%" },
+				{ top: "160px" },
+				{ opacity: "100%" },
+				{ top: "180px" },
+			],
+			{
+				duration: 500,
+				iterations: 1,
+				delay: 0,
+				easing: "ease-in-out",
+			}
+		)
+		bush.style.cursor = "inherit"
+	}
+
+	hammer.addEventListener("click", () => {
+		// https://vueschool.io/articles/vuejs-tutorials/how-to-update-root-css-variable-with-javascript/
+		hammer.style.opacity = 0
+		hammer.style.display = "none"
+
+		document.documentElement.style.cursor = "url('hammer.png'), auto"
+		world.style.cursor = "url('hammer.png'), auto"
+		hammerActive = true
 	})
 
 	//=====RECURSIVE BELL HANDLING=====//

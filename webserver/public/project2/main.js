@@ -85,7 +85,6 @@ window.onload = () => {
 		)
 		church.animate(
 			[
-				// { scale: "100%" },
 				{ rotate: "0" },
 				{ rotate: "3deg" },
 			],

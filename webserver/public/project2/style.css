@@ -5,16 +5,11 @@
 body {
 	/* https://stackoverflow.com/questions/2284562/absolutely-positioned-div-on-right-causing-scrollbar-when-the-left-doesnt */
 	/* for hiding congregation in the wings */
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 
 button:hover {
 	cursor: pointer;
-}
-
-#world {
-	/* min-height: 100%; */
-	/* width: 100%; */
 }
 
 #light {
@@ -35,11 +30,15 @@ button:hover {
 
 }
 
-#church {
+#world {
+
 	position: absolute;
 	translate: -50% -50%;
 	top: calc(50% - 30px);
 	left: calc(50% - 30px);
+}
+
+#church {
 
 	/* transition: scale 0.1s; */
 
@@ -51,9 +50,20 @@ button:hover {
 
 }
 
-#church:hover {
+#world:hover {
 	scale: 102%;
 	cursor: grabbing;
+}
+
+#bush {
+	position: absolute;
+	top: 178px;
+	left: 49px;
+}
+
+#bush:hover {
+	scale: 110%;
+	cursor: help;
 }
 
 #congregation {
@@ -68,6 +78,8 @@ button:hover {
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 }
+
+
 
 .clicked {
 	background-color: red;

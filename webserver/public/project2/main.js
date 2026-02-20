@@ -11,6 +11,7 @@ window.onload = () => {
 	const demoRingSixBtn = document.getElementById("demo-ring-six-btn")
 	const demoCongregateBtn = document.getElementById("demo-congregate-btn")
 	const demoDisperseBtn = document.getElementById("demo-disperse-btn")
+	const demoProtestBtn = document.getElementById("demo-protest-btn")
 	const demoReplaceHammerBtn = document.getElementById("demo-replace-hammer-btn")
 
 	//=====ELEMENTS AND STATE=====//
@@ -66,6 +67,10 @@ window.onload = () => {
 			}
 		)
 		bush.style.cursor = "inherit"
+	}
+
+	function flashMartinLuther() {
+
 	}
 
 	hammer.addEventListener("click", () => {
@@ -133,7 +138,7 @@ window.onload = () => {
 		)
 		world.animate(
 			[
-				{ rotate: "0" },
+				{ rotate: "0deg" },
 				{ rotate: "3deg" },
 			],
 			{
@@ -147,7 +152,7 @@ window.onload = () => {
 			[
 				// { scale: "100%" },
 				{ rotate: "3deg" },
-				{ rotate: "0" },
+				{ rotate: "0deg" },
 			],
 			{
 				duration: 2500,
@@ -254,12 +259,55 @@ window.onload = () => {
 		)
 	}
 
+	/**
+	 * congregants approach church and hesitate at the door and then leave
+	 */
+	function protestTheChurch() {
+		if (congregating) {
+			// [TODO] make the congregation come out, look at the door, and leave grumbling
+		}
+		crowdTalk.play()
+		congregation.animate(
+			[
+				{ left: "100%", top: "50%", scale: "80%" },
+				{ left: "30%", top: "calc(60% - 30px)", scale: "40%" }, // stop at door
+			],
+			{
+				duration: 2000,
+				iterations: 1,
+				delay: 0,
+				easing: "linear",
+			}
+		)
+		// hesitate then leave
+		setTimeout(() => {
+			knock.play()
+			congregation.animate(
+				[
+					{ left: "30%", top: "calc(60% - 30px)", scale: "-40% 40%" },
+					{ left: "-50%", top: "50%", scale: "-80% 80%" },
+				],
+				{
+					duration: 2000,
+					iterations: 1,
+					delay: 1000,
+					easing: "linear",
+				}
+			)
+		}, 500)
+	}
+
 	// DEMO BUTTONS
 	demoCongregateBtn.addEventListener("click", () => {
 		goToChurch()
 	})
 	demoDisperseBtn.addEventListener("click", () => {
 		leaveChurch()
+	})
+
+	// demo: protest the church
+	demoProtestBtn.addEventListener("click", () => {
+		protestTheChurch()
 	})
 
 
@@ -289,8 +337,11 @@ window.onload = () => {
 	}, 1000)
 
 	church.addEventListener("click", () => {
-		//ringChurchBell(1)
-		//goToChurch()
+		if (hammerActive) {
+			flashMartinLuther()
+			hammerActive = false
+			return
+		}
 		knock.play()
 		if (congregating) {
 			setTimeout(() => {

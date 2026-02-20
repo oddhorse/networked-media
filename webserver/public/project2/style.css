@@ -66,6 +66,12 @@ button:hover {
 	cursor: help;
 }
 
+#hammer {
+	position: absolute;
+	top: 178px;
+	left: 49px;
+}
+
 #congregation {
 	position: absolute;
 	translate: 0 -50%;

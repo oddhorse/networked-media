@@ -11,6 +11,7 @@ window.onload = () => {
 	const demoRingSixBtn = document.getElementById("demo-ring-six-btn")
 	const demoCongregateBtn = document.getElementById("demo-congregate-btn")
 	const demoDisperseBtn = document.getElementById("demo-disperse-btn")
+	const demoReplaceHammerBtn = document.getElementById("demo-replace-hammer-btn")
 
 	//=====ELEMENTS AND STATE=====//
 	// audio
@@ -23,12 +24,24 @@ window.onload = () => {
 	// elements
 	const light = document.getElementById("light")
 	const church = document.getElementById("church")
+	const world = document.getElementById("world")
+	const bush = document.getElementById("bush")
 	const congregation = document.getElementById("congregation")
+	const hammer = document.getElementById("hammer")
 	const pageTitle = document.getElementById("page-title")
 
 	let ringsRemaining = 0
 	let lastHourRung
 	let congregating = false
+	let hammerFound = false
+
+	//=====HAMMER AND MARTIN LUTHER=====//
+
+	bush.addEventListener("click", () => {
+		if (!hammerFound) {
+
+		}
+	})
 
 	//=====RECURSIVE BELL HANDLING=====//
 	// not biggest recursive fan in the world but simplest way i know to handle the timed nature
@@ -83,7 +96,7 @@ window.onload = () => {
 				easing: "linear",
 			}
 		)
-		church.animate(
+		world.animate(
 			[
 				{ rotate: "0" },
 				{ rotate: "3deg" },
@@ -95,7 +108,7 @@ window.onload = () => {
 				easing: "linear",
 			}
 		)
-		church.animate(
+		world.animate(
 			[
 				// { scale: "100%" },
 				{ rotate: "3deg" },
@@ -150,7 +163,7 @@ window.onload = () => {
 				easing: "linear",
 			}
 		)
-		church.animate(
+		world.animate(
 			[
 				{ scale: "100%" },
 				{ scale: "103%" },
@@ -191,7 +204,7 @@ window.onload = () => {
 				easing: "linear",
 			}
 		)
-		church.animate(
+		world.animate(
 			[
 				{ scale: "100%" },
 				{ scale: "103%" },

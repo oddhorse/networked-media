@@ -270,7 +270,7 @@ window.onload = () => {
 		congregation.animate(
 			[
 				{ left: "100%", top: "50%", scale: "80%" },
-				{ left: "30%", top: "calc(60% - 30px)", scale: "40%" }, // stop at door
+				{ left: "45%", top: "calc(60% - 30px)", scale: "40%" }, // stop at door
 			],
 			{
 				duration: 2000,
@@ -284,8 +284,8 @@ window.onload = () => {
 			knock.play()
 			congregation.animate(
 				[
-					{ left: "30%", top: "calc(60% - 30px)", scale: "-40% 40%" },
-					{ left: "-50%", top: "50%", scale: "-80% 80%" },
+					{ left: "45%", top: "calc(60% - 30px)", scale: "-40% 40%" },
+					{ left: "100%", top: "50%", scale: "-80% 80%" },
 				],
 				{
 					duration: 2000,
